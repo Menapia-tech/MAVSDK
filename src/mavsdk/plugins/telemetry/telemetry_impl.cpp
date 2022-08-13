@@ -1073,7 +1073,8 @@ void TelemetryImpl::process_sys_status(const mavlink_message_t& message)
         new_battery.voltage_v = sys_status.voltage_battery * 1e-3f;
         // FIXME: it is strange calling it percent when the range goes from 0 to 1.
         new_battery.remaining_percent = sys_status.battery_remaining * 1e-2f;
-
+        new_battery.current = bat_status.current_battery
+        
         set_battery(new_battery);
 
         {
@@ -1171,6 +1172,7 @@ void TelemetryImpl::process_battery_status(const mavlink_message_t& message)
     }
     // FIXME: it is strange calling it percent when the range goes from 0 to 1.
     new_battery.remaining_percent = bat_status.battery_remaining * 1e-2f;
+    new_battery.current = bat_status.current_battery
 
     set_battery(new_battery);
 

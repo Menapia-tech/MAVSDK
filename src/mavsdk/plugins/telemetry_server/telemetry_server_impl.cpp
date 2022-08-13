@@ -174,8 +174,8 @@ TelemetryServer::Result TelemetryServerImpl::publish_battery(TelemetryServer::Ba
         MAV_BATTERY_TYPE_LIPO,
         INT16_MAX,
         voltages,
+        static_cast<uint16_t>(static_cast<double>(battery.current) * 1E2),  //current_battery
         -1, // TODO publish all battery data
-        -1,
         -1,
         static_cast<uint16_t>(static_cast<double>(battery.remaining_percent) * 1E2),
         0,

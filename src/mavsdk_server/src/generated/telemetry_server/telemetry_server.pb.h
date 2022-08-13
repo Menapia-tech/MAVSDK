@@ -6681,6 +6681,7 @@ class Battery final :
   enum : int {
     kVoltageVFieldNumber = 1,
     kRemainingPercentFieldNumber = 2,
+    kCurrentFieldNumber = 3,
   };
   // float voltage_v = 1 [(.mavsdk.options.default_value) = "NaN"];
   void clear_voltage_v();
@@ -6700,6 +6701,15 @@ class Battery final :
   void _internal_set_remaining_percent(float value);
   public:
 
+  // float current = 3 [(.mavsdk.options.default_value) = "NaN"];
+  void clear_current();
+  float current() const;
+  void set_current(float value);
+  private:
+  float _internal_current() const;
+  void _internal_set_current(float value);
+  public:
+
   // @@protoc_insertion_point(class_scope:mavsdk.rpc.telemetry_server.Battery)
  private:
   class _Internal;
@@ -6709,8 +6719,9 @@ class Battery final :
   typedef void DestructorSkippable_;
   float voltage_v_;
   float remaining_percent_;
+  float current_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_telemetry_5fserver_2ftelemetry_5fserver_2eproto;
+  friend struct ::TableStruct_telemetry_5fserver_2ftelemetry_5fserver_2eproto; //might need to edit this table?
 };
 // -------------------------------------------------------------------
 
@@ -14030,6 +14041,26 @@ inline void Battery::_internal_set_remaining_percent(float value) {
 inline void Battery::set_remaining_percent(float value) {
   _internal_set_remaining_percent(value);
   // @@protoc_insertion_point(field_set:mavsdk.rpc.telemetry_server.Battery.remaining_percent)
+}
+
+// float current = 3 [(.mavsdk.options.default_value) = "NaN"];
+inline void Battery::clear_current() {
+  current_ = 0;
+}
+inline float Battery::_internal_current() const {
+  return current_;
+}
+inline float Battery::current() const {
+  // @@protoc_insertion_point(field_get:mavsdk.rpc.telemetry_server.Battery.current)
+  return _internal_current();
+}
+inline void Battery::_internal_set_current(float value) {
+  
+  current_ = value;
+}
+inline void Battery::set_current(float value) {
+  _internal_set_current(value);
+  // @@protoc_insertion_point(field_set:mavsdk.rpc.telemetry_server.Battery.current)
 }
 
 // -------------------------------------------------------------------

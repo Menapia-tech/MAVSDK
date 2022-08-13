@@ -143,7 +143,7 @@ protected:
 
     void checkSendsBatteryEvents(const std::vector<Battery>& battery_events) const;
     Battery
-    createBattery(const uint32_t id, const float voltage_v, const float remaining_percent) const;
+    createBattery(const uint32_t id, const float voltage_v, const float remaining_percent, const float current) const;
     std::future<void> subscribeBatteryAsync(std::vector<Battery>& battery_events) const;
 
     void checkSendsFlightModeEvents(const std::vector<FlightMode>& flight_mode_events) const;
@@ -846,6 +846,7 @@ TelemetryServiceImplTest::subscribeBatteryAsync(std::vector<Battery>& battery_ev
             battery.id = battery_rpc.id();
             battery.voltage_v = battery_rpc.voltage_v();
             battery.remaining_percent = battery_rpc.remaining_percent();
+            battery.current = battery_rpc.current();
 
             battery_events.push_back(battery);
         }
@@ -874,12 +875,13 @@ TEST_F(TelemetryServiceImplTest, sendsOneBatteryEvent)
 }
 
 Battery TelemetryServiceImplTest::createBattery(
-    const uint32_t id, const float voltage_v, const float remaining_percent) const
+    const uint32_t id, const float voltage_v, const float remaining_percent, const float current) const
 {
     Battery battery;
     battery.id = id;
     battery.voltage_v = voltage_v;
     battery.remaining_percent = remaining_percent;
+    battery.current = current;
 
     return battery;
 }

@@ -556,6 +556,8 @@ public:
 
         rpc_obj->set_remaining_percent(battery.remaining_percent);
 
+        rpc_obj->set_current(battery.current);
+
         return rpc_obj;
     }
 
@@ -569,6 +571,8 @@ public:
         obj.voltage_v = battery.voltage_v();
 
         obj.remaining_percent = battery.remaining_percent();
+
+        obj.current = battery.current();
 
         return obj;
     }
