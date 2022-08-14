@@ -869,7 +869,7 @@ TEST_F(TelemetryServiceImplTest, doesNotSendBatteryIfCallbackNotCalled)
 TEST_F(TelemetryServiceImplTest, sendsOneBatteryEvent)
 {
     std::vector<Battery> battery_events;
-    battery_events.push_back(createBattery(0, 4.2f, 0.63f));
+    battery_events.push_back(createBattery(0, 4.2f, 0.63f, 4.2f));
 
     checkSendsBatteryEvents(battery_events);
 }
@@ -914,10 +914,10 @@ TEST_F(TelemetryServiceImplTest, sendsMultipleBatteryEvents)
 {
     std::vector<Battery> battery_events;
 
-    battery_events.push_back(createBattery(0, 4.1f, 0.34f));
-    battery_events.push_back(createBattery(1, 5.1f, 0.12f));
-    battery_events.push_back(createBattery(2, 2.4f, 0.99f));
-    battery_events.push_back(createBattery(3, 5.7f, 1.0f));
+    battery_events.push_back(createBattery(0, 4.1f, 0.34f, 4.1f));
+    battery_events.push_back(createBattery(1, 5.1f, 0.12f, 5.1f));
+    battery_events.push_back(createBattery(2, 2.4f, 0.99f, 2.4f));
+    battery_events.push_back(createBattery(3, 5.7f, 1.0f, 5.7f));
 
     checkSendsBatteryEvents(battery_events);
 }

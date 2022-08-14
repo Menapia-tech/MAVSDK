@@ -18563,6 +18563,7 @@ class Battery final :
     kVoltageVFieldNumber = 1,
     kRemainingPercentFieldNumber = 2,
     kIdFieldNumber = 3,
+    kCurrentFieldNumber = 4,
   };
   // float voltage_v = 1 [(.mavsdk.options.default_value) = "NaN"];
   void clear_voltage_v();
@@ -18591,6 +18592,15 @@ class Battery final :
   void _internal_set_id(uint32_t value);
   public:
 
+  // float current = 4 [(.mavsdk.options.default_value) = "NaN"];
+  void clear_current();
+  float current() const;
+  void set_current(float value);
+  private:
+  float _internal_current() const;
+  void _internal_set_current(float value);
+  public:
+
   // @@protoc_insertion_point(class_scope:mavsdk.rpc.telemetry.Battery)
  private:
   class _Internal;
@@ -18601,6 +18611,7 @@ class Battery final :
   float voltage_v_;
   float remaining_percent_;
   uint32_t id_;
+  float current_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_telemetry_2ftelemetry_2eproto;
 };
@@ -29080,6 +29091,26 @@ inline void Battery::_internal_set_remaining_percent(float value) {
 inline void Battery::set_remaining_percent(float value) {
   _internal_set_remaining_percent(value);
   // @@protoc_insertion_point(field_set:mavsdk.rpc.telemetry.Battery.remaining_percent)
+}
+
+// float current = 4 [(.mavsdk.options.default_value) = "NaN"];
+inline void Battery::clear_current() {
+  current_ = 0;
+}
+inline float Battery::_internal_current() const {
+  return current_;
+}
+inline float Battery::current() const {
+  // @@protoc_insertion_point(field_get:mavsdk.rpc.telemetry.Battery.current)
+  return _internal_current();
+}
+inline void Battery::_internal_set_current(float value) {
+  
+  current_ = value;
+}
+inline void Battery::set_current(float value) {
+  _internal_set_current(value);
+  // @@protoc_insertion_point(field_set:mavsdk.rpc.telemetry.Battery.current)
 }
 
 // -------------------------------------------------------------------

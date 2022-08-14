@@ -6681,7 +6681,7 @@ class Battery final :
   enum : int {
     kVoltageVFieldNumber = 1,
     kRemainingPercentFieldNumber = 2,
-    kCurrentFieldNumber = 3,
+    kCurrentFieldNumber = 4,
   };
   // float voltage_v = 1 [(.mavsdk.options.default_value) = "NaN"];
   void clear_voltage_v();
@@ -6701,7 +6701,7 @@ class Battery final :
   void _internal_set_remaining_percent(float value);
   public:
 
-  // float current = 3 [(.mavsdk.options.default_value) = "NaN"];
+  // float current = 4 [(.mavsdk.options.default_value) = "NaN"];
   void clear_current();
   float current() const;
   void set_current(float value);
@@ -6721,7 +6721,7 @@ class Battery final :
   float remaining_percent_;
   float current_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_telemetry_5fserver_2ftelemetry_5fserver_2eproto; //might need to edit this table?
+  friend struct ::TableStruct_telemetry_5fserver_2ftelemetry_5fserver_2eproto;
 };
 // -------------------------------------------------------------------
 
@@ -14043,7 +14043,7 @@ inline void Battery::set_remaining_percent(float value) {
   // @@protoc_insertion_point(field_set:mavsdk.rpc.telemetry_server.Battery.remaining_percent)
 }
 
-// float current = 3 [(.mavsdk.options.default_value) = "NaN"];
+// float current = 4 [(.mavsdk.options.default_value) = "NaN"];
 inline void Battery::clear_current() {
   current_ = 0;
 }

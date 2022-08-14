@@ -91,9 +91,9 @@ command -v ${protoc_binary} > /dev/null && command -v ${protoc_grpc_binary} > /d
 }
 
 echo "Installing protoc-gen-mavsdk locally into build folder"
-python -m pip install --upgrade --target=${build_dir}/pb_plugins  ${script_dir}/../proto/pb_plugins
+#python -m pip install --upgrade --target=${build_dir}/pb_plugins/setup.py  ${script_dir}/../proto/pb_plugins
 
-protoc_gen_mavsdk="${build_dir}/pb_plugins/bin/protoc-gen-mavsdk"
+protoc_gen_mavsdk="${HOME}/.local/bin/protoc-gen-mavsdk" #"${build_dir}/pb_plugins/bin/protoc-gen-mavsdk"
 export PYTHONPATH="${build_dir}/pb_plugins:${PYTHONPATH}"
 echo "Using protoc_gen_mavsdk: ${protoc_gen_mavsdk}"
 
